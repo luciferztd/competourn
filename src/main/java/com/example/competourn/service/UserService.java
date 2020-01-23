@@ -1,5 +1,6 @@
 package com.example.competourn.service;
 
+import com.example.competourn.dto.Response;
 import com.example.competourn.dto.UserDto;
 import com.example.competourn.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,19 +11,22 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
-    public String authenticateUser(final UserDto userDto) {
-
+    public Response authenticateUser(final UserDto userDto) {
+        Response response;
         if (userDao.checkValidUser(userDto.getUserName())) {
             String dbpassword = userDao.getLoginCredentials(userDto.getUserName());
 
             if (userDto.getPassword().equals(dbpassword)) {
-                return ("Valid User");
+                response=Response.ok();
+                response.setPayload("Valid User");
             } else {
-                return ("Incorrect Password");
+                response=Response.wrongCredentials();
+                response.setPayload("Incorrect Password");
             }
         } else {
-            return ("User Name does not exist");
+            response=Response.notFound();
+            response.setPayload ("User Name does not exist");
         }
-
+        return response;
     }
 }
