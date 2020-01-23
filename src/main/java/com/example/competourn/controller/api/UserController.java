@@ -24,8 +24,6 @@ public class UserController {
         UserDto userDto=new UserDto();
         userDto.setUserName(userSigninRequest.getUserName());
         userDto.setPassword(userSigninRequest.getPassword());
-        Response response=Response.ok();
-        response.setPayload(service.authenticateUser(userDto));
-        return response;
+        return service.authenticateUser(userDto);
     }
 }
