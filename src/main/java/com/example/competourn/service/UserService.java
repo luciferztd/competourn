@@ -21,7 +21,7 @@ public class UserService {
                 return ("Incorrect Password");
             }
         } else {
-            return ("User does not exist");
+            return ("User Name does not exist");
         }
 
     }
