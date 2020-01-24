@@ -1,6 +1,6 @@
 package com.example.competourn.service;
 
-import com.example.competourn.dto.Response;
+import com.example.competourn.controller.response.Response;
 import com.example.competourn.dto.UserDto;
 import com.example.competourn.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;

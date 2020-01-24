@@ -1,6 +1,4 @@
-package com.example.competourn.dto;
-
-import org.springframework.stereotype.Component;
+package com.example.competourn.controller.response;
 
 
 public class Response <T>{

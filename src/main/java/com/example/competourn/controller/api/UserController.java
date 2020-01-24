@@ -1,7 +1,7 @@
 package com.example.competourn.controller.api;
 
 import com.example.competourn.controller.request.UserSigninRequest;
-import com.example.competourn.dto.Response;
+import com.example.competourn.controller.response.Response;
 import com.example.competourn.dto.UserDto;
 import com.example.competourn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,8 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/auth")
-    public Response paswd(@RequestBody @Valid UserSigninRequest userSigninRequest) {
+    public Response paswd(@RequestBody UserSigninRequest userSigninRequest) {
+        System.out.println(userSigninRequest);
         UserDto userDto=new UserDto();
         userDto.setUserName(userSigninRequest.getUserName());
         userDto.setPassword(userSigninRequest.getPassword());
